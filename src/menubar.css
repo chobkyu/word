@@ -1,0 +1,16 @@
+ul{
+    list-style:none;
+    position: relative;
+}
+
+li {
+    padding: 0 3rem;
+    size: '2rem';
+}
+
+.header__menulist li,
+.header__right li {
+    margin: 1rem 0;
+    padding: 0;
+}
+
