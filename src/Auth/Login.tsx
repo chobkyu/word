@@ -37,8 +37,7 @@ const LoginPage = () => {
                 console.log(res);
                 setCookie('myToken', res.token, {
                     path: "/",
-                    secure: true,
-                    sameSite: "none"
+                 
                 })
 
                 navigate('/main');

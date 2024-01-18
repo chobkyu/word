@@ -37,10 +37,8 @@ const LoginM = () => {
                 console.log(res);
                 setCookie('myToken', res.token, {
                     path: "/",
-                    secure: true,
-                    sameSite: "none"
                 })
-
+                console.log('login!!');
                 navigate('/m');
 
             })

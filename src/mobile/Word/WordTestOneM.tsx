@@ -68,6 +68,8 @@ const WordTestOneM = () => {
     );
 
     const list = async () => {
+        console.log(getCookie('myToken'))
+
         fetch(addr + '/word/mobileTest/' + id, {
             method: "GET",
             headers: {

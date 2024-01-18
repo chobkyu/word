@@ -17,7 +17,7 @@ const MainMobile = () =>{
             })
     },[]);
     return(
-        <div style={{textAlign:'center',marginTop:'13rem',marginLeft:'3.25rem',position:'relative',zIndex:1}}>
+        <div className="AppDesktop" style={{textAlign:'center',marginTop:'13rem',marginLeft:'14.8%',position:'relative',zIndex:1}}>
             <table>
                 <tr>
                     <td>
