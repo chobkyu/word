@@ -21,7 +21,7 @@ const Menu = () =>{
     const getCheck = () => {
         console.log(param.pathname);
         
-        if(getCookie('myToken')===undefined){
+        if(getCookie('myToken')==undefined){
             setIsLogined(false);
         }else{
             setIsLogined(true);
@@ -117,6 +117,7 @@ const Menu = () =>{
     const logOut = () => {
         removeCookie('myToken');
         alert('로그아웃 되었습니다');
+        console.log(getCookie('myToken'))
         setIsLogined(false);
         getCheck();
     }
