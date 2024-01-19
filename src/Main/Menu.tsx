@@ -7,7 +7,7 @@ import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@mui/mater
 import MenuIcon from '@mui/icons-material/Menu';
 import '../menubar.css'
 import { addr } from '../common/serverAddress';
-import { getCookie, removeCookie } from '../common/Cookies';
+import { getCookie, removeCookie, setCookie } from '../common/Cookies';
 
 const Menu = () =>{
     const param = useLocation();
@@ -15,14 +15,29 @@ const Menu = () =>{
     const [buttonClick,setButtonClick] = useState<boolean>(false);
     const [isLogined,setIsLogined] = useState<boolean>(false);
     useEffect(()=>{
-        getCheck();
+        console.log(param.pathname);
+        console.log(getCookie('myToken'))
+        if(getCookie('myToken')==undefined){
+            setIsLogined(false);
+        }else if(getCookie('myToken')==''){
+            navigate('/m/login')
+        }else{
+            setIsLogined(true);
+        }
+
+        let path : string = param.pathname;
+        let pathName = new Array();
+        pathName = [...path];
+        pathName[1]==='m'? setCheckMobile(true) : setCheckMobile(false);
     },[])
 
     const getCheck = () => {
         console.log(param.pathname);
-        
+        console.log(getCookie('myToken'))
         if(getCookie('myToken')==undefined){
             setIsLogined(false);
+        }else if(getCookie('myToken')==''){
+            navigate('/m/login')
         }else{
             setIsLogined(true);
         }
@@ -88,6 +103,8 @@ const Menu = () =>{
         if(getCookie('myToken')==undefined){
             console.log(getCookie('myToken'))
             navigate('/m/login')
+        }else if(getCookie('myToken')==''){
+            navigate('/m/login')
         }else{
             goToLoginPage();
         }
@@ -115,7 +132,9 @@ const Menu = () =>{
     }
 
     const logOut = () => {
-        removeCookie('myToken');
+        setCookie('myToken', '' ,{
+            path: "/",
+        })
         alert('로그아웃 되었습니다');
         console.log(getCookie('myToken'))
         setIsLogined(false);
