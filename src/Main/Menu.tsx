@@ -7,20 +7,31 @@ import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@mui/mater
 import MenuIcon from '@mui/icons-material/Menu';
 import '../menubar.css'
 import { addr } from '../common/serverAddress';
-import { getCookie } from '../common/Cookies';
+import { getCookie, removeCookie } from '../common/Cookies';
 
 const Menu = () =>{
     const param = useLocation();
     const [checkMobile,setCheckMobile] = useState<boolean>(false); 
     const [buttonClick,setButtonClick] = useState<boolean>(false);
-
+    const [isLogined,setIsLogined] = useState<boolean>(false);
     useEffect(()=>{
+        getCheck();
+    },[])
+
+    const getCheck = () => {
         console.log(param.pathname);
+        
+        if(getCookie('myToken')===undefined){
+            setIsLogined(false);
+        }else{
+            setIsLogined(true);
+        }
+
         let path : string = param.pathname;
         let pathName = new Array();
         pathName = [...path];
         pathName[1]==='m'? setCheckMobile(true) : setCheckMobile(false);
-    },[])
+    }
 
 
     const items: MenuItem[] = [
@@ -72,7 +83,18 @@ const Menu = () =>{
         navigate('/m/'+name);
     }
 
+    const checkLogin = () => {
+        console.log('check login : ' + getCookie('myToken'))
+        if(getCookie('myToken')==undefined){
+            console.log(getCookie('myToken'))
+            navigate('/m/login')
+        }else{
+            goToLoginPage();
+        }
+    }
+
     const goToLoginPage = async () => {
+        
         fetch(addr+'/user/getUser',{
             method:"GET",
             headers:{
@@ -90,6 +112,13 @@ const Menu = () =>{
             }
            
         })
+    }
+
+    const logOut = () => {
+        removeCookie('myToken');
+        alert('로그아웃 되었습니다');
+        setIsLogined(false);
+        getCheck();
     }
 
     //https://jeewonscript.tistory.com/6
@@ -119,7 +148,12 @@ const Menu = () =>{
                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                      WordTest
                    </Typography>
-                   <Button color="inherit" onClick={goToLoginPage}>Login</Button>
+
+                   {isLogined ?  
+                    <Button color="inherit" onClick={logOut}>LogOut</Button>
+                    :
+                    <Button color="inherit" onClick={checkLogin}>Login</Button>
+                   }
                  </Toolbar>
                </AppBar>
                {buttonClick ? 
