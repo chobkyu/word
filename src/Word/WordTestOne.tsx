@@ -158,6 +158,7 @@ const WordTestOne = () => {
       
     ];
 
+//소문자로
     const inputAnswer = (en:string,kr:string,type:number,answer:string) => {
         const data = {
             en,kr,type,answer
