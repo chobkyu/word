@@ -120,7 +120,7 @@ const WordTestOneM = () => {
         }
 
         if (flag) {
-            studentAnswer[idx].answer = answer;
+            studentAnswer[idx].answer = answer.toLowerCase();
         } else {
             studentAnswer.push(data);
         }
@@ -166,7 +166,7 @@ const WordTestOneM = () => {
                         >
                             <Typography><h1>{words.en}</h1></Typography>
                         </Paper>
-                        <Box sx={{ height: 300, maxWidth: 400, width: '100%', p: 2 }}>
+                        <Box sx={{ height: 180, maxWidth: 400, width: '100%', p: 2 }}>
                             <InputText
                                 value = {answer} 
                                 onChange={
@@ -199,7 +199,7 @@ const WordTestOneM = () => {
 
                             <Typography><h1>{words.kr}</h1></Typography>
                         </Paper>
-                        <Box sx={{ height: 300, maxWidth: 400, width: '100%', p: 2 }}>
+                        <Box sx={{ height: 180, maxWidth: 400, width: '100%', p: 2 }}>
                             <InputText 
                                 value={answer}
                                 onChange={
@@ -232,7 +232,7 @@ const WordTestOneM = () => {
                             <Typography><h1>{words.enSentence}</h1></Typography>
                         </Paper>
                         <h2>{words.krSentence}</h2>
-                        <Box sx={{ height: 300, maxWidth: 400, width: '100%', p: 2 }}>
+                        <Box sx={{ height: 180, maxWidth: 400, width: '100%', p: 2 }}>
                             <InputText 
                                 value={answer}
                                 onChange={

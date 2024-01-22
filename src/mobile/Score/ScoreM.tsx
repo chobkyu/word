@@ -50,11 +50,26 @@ const ScoreM = () =>{
         navigator('/m/wrongAnswer/'+seq);
     }
 
+    const getDate = (dateExam:Date|null) => {
+        //console.log(date)
 
+        if(dateExam!==null){
+            //console.log(date)
+            let date = new Date(dateExam) 
+            let year = date.getFullYear();
+            let month = date.getMonth()+1;
+            let day = date.getDate();
+            
+            return `${year}년 ${month}월 ${day}일`
+        }else{
+            return '-'
+        }
+       
+    }
 
     const itemTemplate = (product: Score) => {
         return (
-            <div className="col-12" style={{height:"5.5rem"}}>
+            <div className="col-12" style={{height:"6rem"}}>
                 <div className="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
                     <div className="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
                         <div className="flex flex-column align-items-center sm:align-items-start gap-3">
@@ -64,13 +79,18 @@ const ScoreM = () =>{
 
                                 </h3>
                             </div>
-                            <div style={{marginLeft:'13rem'}}>
-                                <span className="flex align-items-center gap-2">
-                                  응시 일시 : <>{product.date}</>
+                            <div style={{float:'right',margin:'0.5rem'}}>
+                                <span className="flex align-items-center gap-2" style={{width:'100%'}}>
+                                  응시 일시 : <>{getDate(product.date)}</>
                                   등급 : {product.grade}
-                                  <Button label="오답보기" onClick={()=>viewWrongAnswer(product.seq)} style={{width:'10rem',height:'1.1rem',}} />
                                 </span>
+                                <div style={{display:'block'}}>
+                                    <Button label="오답보기" onClick={()=>viewWrongAnswer(product.seq)} style={{width:'10rem',height:'1.1rem',float:'right'}} />
+
+                                </div>
+
                             </div>
+                            
                         </div>
                         <div className="flex sm:flex-column align-items-t sm:align-items-end gap-3 sm:gap-2">
                            
