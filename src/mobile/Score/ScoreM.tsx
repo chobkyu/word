@@ -81,7 +81,7 @@ const ScoreM = () =>{
                             </div>
                             <div style={{float:'right',margin:'0.5rem'}}>
                                 <span className="flex align-items-center gap-2" style={{width:'100%'}}>
-                                  응시 일시 : <>{getDate(product.date)}</>
+                                  응시 일시 : <>{getDate(product.date)}</>&nbsp;
                                   등급 : {product.grade}
                                 </span>
                                 <div style={{display:'block'}}>
