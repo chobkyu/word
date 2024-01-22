@@ -178,11 +178,11 @@ const Menu = () =>{
                </AppBar>
                {buttonClick ? 
                     <ul className="header__menulist" style={{height:'20rem',position:'relative',zIndex:2}}> 
-                        <li style={{marginTop:'3.5rem'}} onClick={()=>{movePage('main')}}>Home</li>
-                        <li onClick={()=>{movePage('score')}}>Score</li>
-                        <li onClick={()=>{movePage('test')}}>Test</li>
-                        <li onClick={()=>{movePage('study')}}>Study</li>
-                        <li onClick={()=>{movePage('MyPage')}}>MyPage</li>
+                        <li style={{marginTop:'3.5rem',marginLeft:'35%'}} onClick={()=>{movePage('main')}}><h2>Home</h2></li>
+                        <li style={{marginLeft:'35%'}}onClick={()=>{movePage('score')}}><h2>Score</h2></li>
+                        <li style={{marginLeft:'35%'}} onClick={()=>{movePage('test')}}><h2>Test</h2></li>
+                        <li style={{marginLeft:'35%'}} onClick={()=>{movePage('study')}}><h2>Study</h2></li>
+                        <li style={{marginLeft:'35%'}} onClick={()=>{movePage('MyPage')}}><h2>MyPage</h2></li>
                     </ul>:<></>}
                
              </Box>
