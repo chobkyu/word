@@ -177,7 +177,7 @@ const Menu = () =>{
                  </Toolbar>
                </AppBar>
                {buttonClick ? 
-                    <ul className="header__menulist" style={{height:'20rem',position:'relative',zIndex:2}}> 
+                    <ul className="header__menulist" style={{height:'50rem',position:'relative',zIndex:2}}> 
                         <li style={{marginTop:'3.5rem',marginLeft:'35%'}} onClick={()=>{movePage('main')}}><h2>Home</h2></li>
                         <li style={{marginLeft:'35%'}}onClick={()=>{movePage('score')}}><h2>Score</h2></li>
                         <li style={{marginLeft:'35%'}} onClick={()=>{movePage('test')}}><h2>Test</h2></li>

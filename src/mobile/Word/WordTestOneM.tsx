@@ -159,14 +159,14 @@ const WordTestOneM = () => {
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                height: 50,
+                                height: '10%',
                                 pl: 2,
                                 bgcolor: 'background.default',
                             }}
                         >
-                            <Typography><h1>{words.en}</h1></Typography>
+                            <Typography style={{width:'100%',marginTop:'5%'}}><h1>{words.en}</h1></Typography>
                         </Paper>
-                        <Box sx={{ height: 180, maxWidth: 400, width: '100%', p: 2 }}>
+                        <Box sx={{ height: 160, maxWidth: 400, width: '100%', p: 2 }}>
                             <InputText
                                 value = {answer} 
                                 onChange={
@@ -191,15 +191,15 @@ const WordTestOneM = () => {
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                height: 50,
+                                height: '10%',
                                 pl: 2,
                                 bgcolor: 'background.default',
                             }}
                         >
 
-                            <Typography><h1>{words.kr}</h1></Typography>
+                            <Typography style={{width:'100%',marginTop:'5%'}}><h1>{words.kr}</h1></Typography>
                         </Paper>
-                        <Box sx={{ height: 180, maxWidth: 400, width: '100%', p: 2 }}>
+                        <Box sx={{ height: 160, maxWidth: 400, width: '100%', p: 2 }}>
                             <InputText 
                                 value={answer}
                                 onChange={
@@ -231,8 +231,8 @@ const WordTestOneM = () => {
 
                             <Typography><h1>{words.enSentence}</h1></Typography>
                         </Paper>
-                        <h2>{words.krSentence}</h2>
-                        <Box sx={{ height: 180, maxWidth: 400, width: '100%', p: 2 }}>
+                        <h2 style={{width:'100%',marginTop:'3rem'}}>{words.krSentence}</h2>
+                        <Box sx={{ height: 160, maxWidth: 400, width: '100%', p: 2 ,marginTop:'1rem'}}>
                             <InputText 
                                 value={answer}
                                 onChange={
@@ -256,16 +256,16 @@ const WordTestOneM = () => {
     return (
         loading ?
             <div style={{ marginTop: "3.5rem" }}>
-                <div style={{ marginTop: '30%' }}>
+                <div style={{ marginTop: '20%' }}>
 
                     <Card variant="outlined" sx={{ minWidth: 275 }}>
                         <CardContent>
-                            <Box sx={{ maxWidth: '80%', flexGrow: 1 }}>
+                            <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
 
                                 {boxComponent(activeStep,words[activeStep])}
 
                                 <MobileStepper
-                                    style={{ marginLeft: '24%' }}
+                                    style={{ marginLeft: '1%' }}
                                     variant="text"
                                     steps={maxword}
                                     position="static"
